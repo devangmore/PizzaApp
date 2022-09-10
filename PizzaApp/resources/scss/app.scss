@@ -1,0 +1,76 @@
+// F5E4C3 - FAF4D0 - FAF4D0 - EA4C4C - C14545 
+@import "./variables";
+@import "~noty/src/noty.scss";
+@import "~noty/src/themes/mint.scss";
+
+body {
+    font-family: "Circular Spotify Tx T Med";
+    -webkit-font-smoothing:antialiased;
+    color:$dark;
+
+  
+
+}
+
+nav li:last-child a {
+    transition: $smooth;
+    &:hover{
+        background: $primary-hover;
+    }
+    background: $primary;
+}
+
+nav li a{
+    transition: $smooth;
+    &:hover{
+    color: $primary;
+    }
+}
+section.hero {
+    background: $secondary;
+}
+.size{
+    background: $secondary;
+}
+.add-to-cart{
+    border: 2px solid $primary;
+    color : $primary;
+    outline: none;
+
+    &:hover{
+        color:$pure;
+        background: $primary;
+        border-color: $pure;
+        outline: none;
+        
+    }
+    transition: $smooth;
+    &:focus{
+        outline: none;
+    }
+}
+
+.btn-order{
+    background: $primary;
+    transition: $smooth;
+    outline: none;
+    &:hover{
+        background: $primary-hover;
+        --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+outline: none;
+    }
+    &:focus{
+        outline: none;
+    }
+}
+
+section.cart{
+    background: $secondary;
+}
+
+.noty_theme__mint{
+    border-radius: 50px !important;
+    padding-left: 8px!important;
+
+}

@@ -1,0 +1,55 @@
+<% if(session.cart) { %>
+<section class=" py-16">
+    
+    <div class="order container mx-auto w-1/2">
+        <div class="flex items-center border-b border-gray-300 pb-4 ">
+            <img  src="/img/cart-black.png" alt="">
+            <h1 class="ml-4 font-bold text-xl">Oder Summary</h1>
+        </div>
+        <div class="pizza-list">
+            <% for(let pizza of Object.values(session.cart.items)) { %>
+            <div class="flex items-center my-8">
+                <img class="w-24" src="/img/<%= pizza.item.image %>" alt="">
+                <div class="flex-1 ml-4">
+                    <h1><%= pizza.item.name %></h1>
+                    <span><%= pizza.item.size %></span>
+                </div>
+                <span class="flex-1"><%= pizza.Qty %> Pcs</span>
+                <span class="font-bold text-lg">₹ <%= pizza.item.price * pizza.Qty %></span>
+            </div>
+            <%  } %>
+        </div>
+        <hr class="border-gray-300">
+        <div class="text-right py-4">
+            <div>
+                <span class="text-lg font-bold">Total Amount : </span>
+                <span class="text-xl font-bold"><%= session.cart ? session.cart.totalPrice : " " %> Rs.</span>
+            </div>
+            <div>
+                <form  class="py-4"action="">
+                    <input class="border border-gray-400 p-2 mt-2 w-1/2" type="text" name="" id="" placeholder="Contact Number">
+                    <input class="border border-gray-400 p-2 mt-2  w-1/2" type="text" name="" id="" placeholder="Delivery Address..">
+                    <div class="py-4">
+                        <button class="btn-order rounded-full font-bold text-white py-2 px-6" type="submit">Order Now</button>
+                    </div>
+                    
+                </form>
+            </div>
+
+            <!-- <a href="" class="btn-order rounded-full font-bold text-white py-2 px-6">Login or Register To order</a> -->
+        </div>
+    </div>
+</section>
+<% } else {%>
+
+<section class="cart">
+    <div class="empty-cart py-12">
+        <div class="container text-center  items-center mx-auto">
+            <h1 class="text-3xl font-bold mb-3 ">Oops, Empty Cart 😕</h1>
+            <p class="mb-12 text-gray-500">It seems you haven't add any pizza in cart <br> make sure you add one from menu.</p>
+            <img class="w-2/6 mb-12 mx-auto" src="/img/empty-cart.png" alt="empty-cart">
+            <a href="/" class="btn-order inline-block text-white rounded-full px-6 py-3 ">Take Me Back To Menu</a>
+        </div>
+    </div>    
+</section>
+<%}%>
